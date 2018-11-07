@@ -1,4 +1,5 @@
 require_dependency "app_component/application_controller"
+
 module AppComponent
   class PredictionsController < ApplicationController
     def new
