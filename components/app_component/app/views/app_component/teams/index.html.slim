@@ -1,4 +1,4 @@
-h1 Listing teams
+h1 Teams
 
 table
   thead
@@ -12,7 +12,6 @@ table
     - @teams.each do |team|
       tr
         td = team.name
-        td = link_to 'Show', team
         td = link_to 'Edit', edit_team_path(team)
         td = link_to 'Destroy', team, data: { confirm: 'Are you sure?' }, method: :delete
 

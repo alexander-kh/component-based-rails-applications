@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.5.0
+gemfile:
+  - Gemfile
+  - components/app_component/Gemfile
+before_install:
+  - cd $(dirname $BUNDLE_GEMFILE)
+script:
+  - travis_retry ./test.sh
