@@ -20,8 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "trueskill"
   s.add_dependency "jquery-rails", "4.3.1"
 
-  s.add_development_dependency "sqlite3"
-  
+  s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "database_cleaner"
