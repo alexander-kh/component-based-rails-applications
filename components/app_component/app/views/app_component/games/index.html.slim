@@ -7,9 +7,6 @@ table
       th Location
       th First team
       th Second team
-      th Winning team
-      th First team score
-      th Second team score
       th
       th
       th
@@ -27,9 +24,9 @@ table
           td = game.first_team.name
           td
             strong = game.second_team.name
-        td = link_to 'Show', game, class: "button tiny"
-        td = link_to 'Edit', edit_game_path(game), class: "button tiny"
-        td = link_to 'Destroy', game, data: { confirm: 'Are you sure?' }, method: :delete, class: "button alert"
+        td = link_to 'Show', game, class: "clear button"
+        td = link_to 'Edit', edit_game_path(game), class: "clear button"
+        td = link_to 'Destroy', game, data: { confirm: 'Are you sure?' }, method: :delete, class: "clear button alert"
 
 br
 

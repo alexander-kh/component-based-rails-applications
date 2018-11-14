@@ -8,4 +8,4 @@ h1 Predictions
   .field
     = label_tag :second_team_id
     = collection_select(:second_team, :id, @teams, :id, :name)
-  .actions = submit_tag "What is it going to be?", class: "button"
+  .actions.button = submit_tag "What is it going to be?"
