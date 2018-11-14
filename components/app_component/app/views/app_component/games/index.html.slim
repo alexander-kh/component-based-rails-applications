@@ -27,10 +27,10 @@ table
           td = game.first_team.name
           td
             strong = game.second_team.name
-        td = link_to 'Show', game
-        td = link_to 'Edit', edit_game_path(game)
-        td = link_to 'Destroy', game, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Show', game, class: "button tiny"
+        td = link_to 'Edit', edit_game_path(game), class: "button tiny"
+        td = link_to 'Destroy', game, data: { confirm: 'Are you sure?' }, method: :delete, class: "button alert"
 
 br
 
-= link_to 'New Game', new_game_path
+= link_to 'New Game', new_game_path, class: "button"

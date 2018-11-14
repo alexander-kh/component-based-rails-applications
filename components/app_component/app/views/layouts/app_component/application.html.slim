@@ -11,5 +11,19 @@ html
     
     = csrf_meta_tags
   
+  header
+    nav.top-bar
+      ul.menu.align-middle
+        li
+          h1
+            = link_to root_path do
+              = image_tag "app_component/logo.png", width: "50px"
+              | Predictor
+        li =link_to "Teams", teams_path
+        li =link_to "Games", games_path
+        li =link_to "Predictions", new_prediction_path
+  
   main
-    = yield
+    .grid-x.grid-padding-x
+      .cell.small-12
+        = yield
