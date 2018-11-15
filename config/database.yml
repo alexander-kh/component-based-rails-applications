@@ -12,4 +12,7 @@ test: &TEST
 
 production:
   adapter: postgresql
-  database: sportsball_production
+  database: igxzyizr
+  username: igxzyizr
+  password: CROKAVQ4GVVhbTcJhwLry0CM4nWw0aKF
+  host: baasu-01.db.elephantsql.com
