@@ -4,6 +4,7 @@ rvm:
 gemfile:
   - web_container/Gemfile
   - components/app_component/Gemfile
+  - components/predictor/Gemfile
 before_install:
   - cd $(dirname $BUNDLE_GEMFILE)
 script:
