@@ -6,10 +6,17 @@ GIT
     trueskill (1.0.0)
 
 PATH
+  remote: ..
+  specs:
+    predictor (0.1.0)
+      trueskill
+
+PATH
   remote: .
   specs:
     app_component (0.1.0)
       jquery-rails (= 4.3.1)
+      predictor
       rails (= 5.1.6)
       slim-rails (= 3.2.0)
       trueskill
@@ -178,6 +185,7 @@ DEPENDENCIES
   capybara
   database_cleaner
   pg
+  predictor!
   rails-controller-testing
   rspec-rails
   shoulda-matchers
