@@ -19,6 +19,11 @@ PATH
       jquery-rails (= 4.3.1)
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
+    teams_admin (0.1.0)
+      app_component
+      jquery-rails (= 4.3.1)
+      rails (~> 5.1.6)
+      slim-rails (= 3.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -245,6 +250,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  teams_admin!
   trueskill!
   turbolinks (~> 5)
   tzinfo-data

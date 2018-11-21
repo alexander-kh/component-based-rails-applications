@@ -1,0 +1,950 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAppComponentTeams (20181101161519)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "app_component_teams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181101161519"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAppComponentGames (20181101161741)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "app_component_games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "location" varchar, "first_team_id" integer, "second_team_id" integer, "winning_team" integer, "first_team_score" integer, "second_team_score" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181101161741"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-11-21 16:02:06.394457"], ["updated_at", "2018-11-21 16:02:06.394457"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (6.9ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.3ms)[0m  [1m[31mDELETE FROM "app_component_teams";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_teams';[0m
+  [1m[35m (1.4ms)[0m  [1m[31mDELETE FROM "app_component_games";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_games';[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-11-21 16:12:39.090777"], ["updated_at", "2018-11-21 16:12:39.090777"]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (2.9ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "app_component_teams";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_teams';[0m
+  [1m[35m (1.2ms)[0m  [1m[31mDELETE FROM "app_component_games";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_games';[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:12:41 +0200
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-11-21 16:15:37.677553"], ["updated_at", "2018-11-21 16:15:37.677553"]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (6.8ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.8ms)[0m  [1m[31mDELETE FROM "app_component_teams";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_teams';[0m
+  [1m[35m (1.3ms)[0m  [1m[31mDELETE FROM "app_component_games";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_games';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:15:39 +0200
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application (9.4ms)
+Completed 500 Internal Server Error in 205ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-11-21 16:16:46.151631"], ["updated_at", "2018-11-21 16:16:46.151631"]]
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (7.1ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.9ms)[0m  [1m[31mDELETE FROM "app_component_teams";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_teams';[0m
+  [1m[35m (1.4ms)[0m  [1m[31mDELETE FROM "app_component_games";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_games';[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:16:48 +0200
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application (9.0ms)
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-11-21 16:20:16.290846"], ["updated_at", "2018-11-21 16:20:16.290846"]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (6.4ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.1ms)[0m  [1m[31mDELETE FROM "app_component_teams";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_teams';[0m
+  [1m[35m (1.5ms)[0m  [1m[31mDELETE FROM "app_component_games";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_games';[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:20:18 +0200
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application (9.7ms)
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.497388"], ["updated_at", "2018-11-21 16:20:18.497388"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "app_component_teams" WHERE "app_component_teams"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+  [1m[35m (5.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.520725"], ["updated_at", "2018-11-21 16:20:18.520725"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+Processing by TeamsAdmin::TeamsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "app_component_teams" WHERE "app_component_teams"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.540251"], ["updated_at", "2018-11-21 16:20:18.540251"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application (0.6ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.551546"], ["updated_at", "2018-11-21 16:20:18.551546"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/_form.html.slim (16.1ms)
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application (23.5ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.586237"], ["updated_at", "2018-11-21 16:20:18.586237"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application (0.6ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "myteam x"], ["created_at", "2018-11-21 16:20:18.593673"], ["updated_at", "2018-11-21 16:20:18.593673"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "myteam x"], ["created_at", "2018-11-21 16:20:18.595305"], ["updated_at", "2018-11-21 16:20:18.595305"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/teams_admin/application (2.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 1", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.626355"], ["updated_at", "2018-11-21 16:20:18.626355"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 1", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.639910"], ["updated_at", "2018-11-21 16:20:18.639910"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 1", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.644164"], ["updated_at", "2018-11-21 16:20:18.644164"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#new as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#new as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/_form.html.slim (0.7ms)
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/teams_admin/application (2.8ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.660548"], ["updated_at", "2018-11-21 16:20:18.660548"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"name"=>"new team name"}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "app_component_teams" SET "name" = ?, "updated_at" = ? WHERE "app_component_teams"."id" = ?[0m  [["name", "new team name"], ["updated_at", "2018-11-21 16:20:18.663704"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.667862"], ["updated_at", "2018-11-21 16:20:18.667862"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 2", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "app_component_teams" SET "name" = ?, "updated_at" = ? WHERE "app_component_teams"."id" = ?[0m  [["name", "Some name 2"], ["updated_at", "2018-11-21 16:20:18.670331"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.673546"], ["updated_at", "2018-11-21 16:20:18.673546"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 2", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "app_component_teams" SET "name" = ?, "updated_at" = ? WHERE "app_component_teams"."id" = ?[0m  [["name", "Some name 2"], ["updated_at", "2018-11-21 16:20:18.676143"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.680141"], ["updated_at", "2018-11-21 16:20:18.680141"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:20:18.687773"], ["updated_at", "2018-11-21 16:20:18.687773"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/teams_admin/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-11-21 16:22:12.176416"], ["updated_at", "2018-11-21 16:22:12.176416"]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (7.1ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (1.3ms)[0m  [1m[31mDELETE FROM "app_component_teams";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_teams';[0m
+  [1m[35m (1.3ms)[0m  [1m[31mDELETE FROM "app_component_games";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'app_component_games';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.150396"], ["updated_at", "2018-11-21 16:22:14.150396"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.183718"], ["updated_at", "2018-11-21 16:22:14.183718"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.191472"], ["updated_at", "2018-11-21 16:22:14.191472"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"name"=>"new team name"}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "app_component_teams" SET "name" = ?, "updated_at" = ? WHERE "app_component_teams"."id" = ?[0m  [["name", "new team name"], ["updated_at", "2018-11-21 16:22:14.194412"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.198945"], ["updated_at", "2018-11-21 16:22:14.198945"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 2", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "app_component_teams" SET "name" = ?, "updated_at" = ? WHERE "app_component_teams"."id" = ?[0m  [["name", "Some name 2"], ["updated_at", "2018-11-21 16:22:14.201615"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.206058"], ["updated_at", "2018-11-21 16:22:14.206058"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#update as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 2", "updated_at"=>""}, "id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "app_component_teams" SET "name" = ?, "updated_at" = ? WHERE "app_component_teams"."id" = ?[0m  [["name", "Some name 2"], ["updated_at", "2018-11-21 16:22:14.208646"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.211642"], ["updated_at", "2018-11-21 16:22:14.211642"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.216021"], ["updated_at", "2018-11-21 16:22:14.216021"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/_form.html.slim (7.5ms)
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/edit.html.slim within layouts/app_component/application (19.5ms)
+Completed 200 OK in 375ms (Views: 374.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.597298"], ["updated_at", "2018-11-21 16:22:14.597298"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+Processing by TeamsAdmin::TeamsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (4.4ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "app_component_teams" WHERE "app_component_teams"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 6ms (ActiveRecord: 4.5ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.611057"], ["updated_at", "2018-11-21 16:22:14.611057"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAppComponent::Team Load (0.0ms)[0m  [1m[34mSELECT  "app_component_teams".* FROM "app_component_teams" WHERE "app_component_teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "app_component_teams" WHERE "app_component_teams"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 1", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.620277"], ["updated_at", "2018-11-21 16:22:14.620277"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 1", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.627181"], ["updated_at", "2018-11-21 16:22:14.627181"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"Some name 1", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.634855"], ["updated_at", "2018-11-21 16:22:14.634855"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/teams_admin/teams
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "app_component_teams"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application (0.5ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"team"=>{"created_at"=>"", "id"=>"", "name"=>"", "updated_at"=>""}}
+Unpermitted parameters: :created_at, :id, :updated_at
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#new as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Processing by TeamsAdmin::TeamsController#new as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/_form.html.slim (1.2ms)
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application (4.0ms)
+Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Some name 1"], ["created_at", "2018-11-21 16:22:14.674597"], ["updated_at", "2018-11-21 16:22:14.674597"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "myteam x"], ["created_at", "2018-11-21 16:22:14.685561"], ["updated_at", "2018-11-21 16:22:14.685561"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "myteam x"], ["created_at", "2018-11-21 16:22:14.687121"], ["updated_at", "2018-11-21 16:22:14.687121"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application (3.8ms)
+Completed 200 OK in 5ms (Views: 5.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms)
+Started GET "/teams_admin/teams/new" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#new as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/_form.html.slim (0.6ms)
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application (0.8ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started POST "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"utf8"=>"✓", "team"=>{"name"=>"UofL"}, "commit"=>"Create Team"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "UofL"], ["created_at", "2018-11-21 16:22:14.708749"], ["updated_at", "2018-11-21 16:22:14.708749"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/teams_admin/teams
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application (0.6ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+Started GET "/teams_admin/teams/new" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#new as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/_form.html.slim (0.6ms)
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/new.html.slim within layouts/app_component/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#create as HTML
+  Parameters: {"utf8"=>"✓", "team"=>{"name"=>"UK"}, "commit"=>"Create Team"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "app_component_teams" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "UK"], ["created_at", "2018-11-21 16:22:14.727672"], ["updated_at", "2018-11-21 16:22:14.727672"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/teams_admin/teams
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+Started GET "/teams_admin/teams" for 127.0.0.1 at 2018-11-21 18:22:14 +0200
+Processing by TeamsAdmin::TeamsController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application
+  [1m[36mAppComponent::Team Load (0.1ms)[0m  [1m[34mSELECT "app_component_teams".* FROM "app_component_teams"[0m
+  Rendered /Users/alexander_kh/workspace/sportsball/components/teams_admin/app/views/teams_admin/teams/index.html.slim within layouts/app_component/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m

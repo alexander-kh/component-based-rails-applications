@@ -1,22 +1,22 @@
-require_dependency "app_component/application_controller"
+require_dependency "teams_admin/application_controller"
 
-module AppComponent
+module TeamsAdmin
   class TeamsController < ApplicationController
     before_action :set_team, only: [:show, :edit, :update, :destroy]
 
     def index
-      @teams = Team.all
+      @teams = AppComponent::Team.all
     end
 
     def new
-      @team = Team.new
+      @team = AppComponent::Team.new
     end
 
     def edit
     end
 
     def create
-      @team = Team.new(team_params)
+      @team = AppComponent::Team.new(team_params)
 
       if @team.save
         redirect_to teams_url, notice: 'Team was successfully created.'
@@ -40,7 +40,7 @@ module AppComponent
 
     private
       def set_team
-        @team = Team.find(params[:id])
+        @team = AppComponent::Team.find(params[:id])
       end
 
       def team_params

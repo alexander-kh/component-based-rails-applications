@@ -1,6 +1,6 @@
-module AppComponent
+module TeamsAdmin
   RSpec.describe TeamsController, type: :controller do
-    routes { AppComponent::Engine.routes }
+    routes { TeamsAdmin::Engine.routes }
     
     let(:valid_attributes) { new_team.as_json }
     let(:invalid_attributes) { new_team.tap { |g| g.name = nil }.as_json }
