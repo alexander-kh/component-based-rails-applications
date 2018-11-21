@@ -5,6 +5,7 @@ gemfile:
   - web_container/Gemfile
   - components/app_component/Gemfile
   - components/predictor/Gemfile
+  - components/games_admin/Gemfile
 before_install:
   - cd $(dirname $BUNDLE_GEMFILE)
 script:

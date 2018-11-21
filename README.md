@@ -2,7 +2,7 @@ The project that is building by the book ["Component-Based Rails Applications: L
 
 The app deployed to:
 - Heroku: https://obscure-wave-95623.herokuapp.com
-- Pivotal Web Services (Cloud Foundry): http://alex-sportsball.cfapps.io/games
+- Pivotal Web Services (Cloud Foundry): http://alex-sportsball.cfapps.io/
 
 To run deploy_to_heroku.sh jsawk and js interpreter have to be installed.
 For Mac OS X:

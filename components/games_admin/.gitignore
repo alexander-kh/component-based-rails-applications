@@ -1,0 +1,6 @@
+.bundle/
+log/*.log
+spec/dummy/db/*.sqlite3
+spec/dummy/db/*.sqlite-journal
+spec/dummy/log/*.log
+spec/dummy/tmp

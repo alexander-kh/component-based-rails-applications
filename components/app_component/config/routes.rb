@@ -1,5 +1,4 @@
 AppComponent::Engine.routes.draw do
-  resources :games
   resources :teams
   
   resource :welcome, only: [:index]

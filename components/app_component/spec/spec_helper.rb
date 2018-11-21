@@ -51,7 +51,7 @@ RSpec.configure do |config|
       Integration, :type => type
   end
   
-  config.include ObjectCreationMethods
+  config.include AppComponent::ObjectCreationMethods
 end
 
 Shoulda::Matchers.configure do |config|
