@@ -19,9 +19,8 @@ html
             = link_to "/" do
               = image_tag "app_component/logo.png", width: "50px"
               | Predictor
-        li =link_to "Games", "/games_admin/games"
-        li =link_to "Teams", "/teams_admin/teams"
-        li =link_to "Predictions", "/prediction_ui/prediction/new"
+        - Rails.application.config.main_nav.each do |nav_entry|
+          li =link_to nav_entry[:name], nav_entry[:link].call
   
   main
     .grid-x.grid-padding-x
