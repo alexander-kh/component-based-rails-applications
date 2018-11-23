@@ -1,6 +1,6 @@
-require_dependency "app_component/application_controller"
+require_dependency "welcome_ui/application_controller"
 
-module AppComponent
+module WelcomeUi
   class WelcomeController < ApplicationController
     def index
     end

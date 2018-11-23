@@ -8,6 +8,7 @@ gemfile:
   - components/games_admin/Gemfile
   - components/teams_admin/Gemfile
   - components/prediction_ui/Gemfile
+  - components/welcome_ui/Gemfile
 before_install:
   - cd $(dirname $BUNDLE_GEMFILE)
 script:

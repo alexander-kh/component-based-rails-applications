@@ -12,6 +12,7 @@ path "../components" do
   gem "games_admin"
   gem "teams_admin"
   gem "prediction_ui"
+  gem "welcome_ui"
 end
 
 gem "trueskill",
