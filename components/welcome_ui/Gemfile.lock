@@ -13,7 +13,10 @@ PATH
       predictor
       rails (= 5.1.6)
       slim-rails (= 3.2.0)
+      teams
       trueskill
+    teams (0.1.0)
+      activerecord (= 5.1.6)
 
 PATH
   remote: .

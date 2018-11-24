@@ -14,6 +14,7 @@ Rails::Controller::Testing.install
 Dir[GamesAdmin::Engine.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 require "app_component/test_helpers"
+require "teams/test_helpers"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -49,6 +50,7 @@ RSpec.configure do |config|
   end
   
   config.include AppComponent::ObjectCreationMethods
+  config.include Teams::ObjectCreationMethods
 end
 
 Shoulda::Matchers.configure do |config|

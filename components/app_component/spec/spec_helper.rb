@@ -14,6 +14,8 @@ Rails::Controller::Testing.install
 
 Dir[AppComponent::Engine.root.join(
   "spec/support/**/*.rb")].each { |f| require f }
+  
+require "teams/test_helpers"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -51,6 +53,7 @@ RSpec.configure do |config|
       Integration, :type => type
   end
   
+  config.include Teams::ObjectCreationMethods
   config.include AppComponent::ObjectCreationMethods
 end
 

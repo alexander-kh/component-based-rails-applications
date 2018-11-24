@@ -4,6 +4,7 @@ gemspec
 
 path "../" do
   gem "app_component"
+  gem "teams"
 end
 
 gem "trueskill",

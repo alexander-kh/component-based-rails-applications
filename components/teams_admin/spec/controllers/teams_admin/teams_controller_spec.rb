@@ -30,7 +30,7 @@ module TeamsAdmin
     describe "GET new" do
       it "assigns a new team as @team" do
         get :new, params: {}, session: valid_session
-        expect(assigns(:team)).to be_a_new AppComponent::Team
+        expect(assigns(:team)).to be_a_new Teams::Team
       end
       
       describe "view" do
@@ -69,17 +69,17 @@ module TeamsAdmin
 
     describe "POST create" do
       context "with valid params" do
-        it "creates a new AppComponent::Team" do
+        it "creates a new Teams::Team" do
           expect {
             post :create, params: {team: valid_attributes},
                           session: valid_session
-          }.to change(AppComponent::Team, :count).by(1)
+          }.to change(Teams::Team, :count).by(1)
         end
         
         it "assigns a newly created team as @team" do
           post :create, params: {team: valid_attributes},
                         session: valid_session
-          expect(assigns(:team)).to be_a AppComponent::Team
+          expect(assigns(:team)).to be_a Teams::Team
           expect(assigns(:team)).to be_persisted
         end
 
@@ -93,7 +93,7 @@ module TeamsAdmin
         it "assigns a newly created but unsaved team as @team" do
           post :create, params: {team: invalid_attributes},
                         session: valid_session
-          expect(assigns(:team)).to be_a_new AppComponent::Team
+          expect(assigns(:team)).to be_a_new Teams::Team
         end
         
         it "re-renders the new template" do
@@ -153,7 +153,7 @@ module TeamsAdmin
         team = create_team
         expect {
           delete :destroy, params: {id: team.to_param}, session: valid_session
-        }.to change(AppComponent::Team, :count).by(-1)
+        }.to change(Teams::Team, :count).by(-1)
       end
 
       it "redirects to the teams list" do

@@ -23,8 +23,8 @@ RSpec.describe "the app", :type => :feature do
   end
   
   it "can predict" do
-    AppComponent::Team.create! name: "UofL"
-    AppComponent::Team.create! name: "UK"
+    Teams::Team.create! name: "UofL"
+    Teams::Team.create! name: "UK"
     visit "/"
     click_link "Predictions"
     click_button "What is it going to be?"

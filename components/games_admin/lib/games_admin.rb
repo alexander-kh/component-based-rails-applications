@@ -2,6 +2,7 @@ require "slim-rails"
 require "jquery-rails"
 
 require "app_component"
+require "teams"
 
 module GamesAdmin
   require "games_admin/engine"

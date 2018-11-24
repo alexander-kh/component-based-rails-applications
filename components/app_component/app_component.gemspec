@@ -19,7 +19,9 @@ Gem::Specification.new do |s|
   s.add_dependency "slim-rails", "3.2.0"
   s.add_dependency "trueskill"
   s.add_dependency "jquery-rails", "4.3.1"
+  
   s.add_dependency "predictor"
+  s.add_dependency "teams"
 
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails"

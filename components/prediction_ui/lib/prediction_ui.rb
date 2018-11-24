@@ -3,6 +3,7 @@ require "jquery-rails"
 
 require "predictor"
 require "app_component"
+require "teams"
 
 module PredictionUi
   require "prediction_ui/engine"
