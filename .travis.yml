@@ -3,13 +3,13 @@ rvm:
   - 2.5.0
 gemfile:
   - web_container/Gemfile
-  - components/app_component/Gemfile
   - components/predictor/Gemfile
   - components/games_admin/Gemfile
   - components/teams_admin/Gemfile
   - components/prediction_ui/Gemfile
   - components/welcome_ui/Gemfile
   - components/teams/Gemfile
+  - components/games/Gemfile
 before_install:
   - cd $(dirname $BUNDLE_GEMFILE)
 script:

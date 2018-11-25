@@ -43,7 +43,7 @@ module GamesAdmin
     describe "GET new" do
       it "assigns a new game as @game" do
         get :new, params: {}, session: valid_session
-        expect(assigns(:game)).to be_a_new AppComponent::Game
+        expect(assigns(:game)).to be_a_new Games::Game
       end
       
       it "routes to #new" do
@@ -66,22 +66,22 @@ module GamesAdmin
 
     describe "POST create" do
       context "with valid params" do
-        it "creates a new AppComponent::Game" do
+        it "creates a new Games::Game" do
           expect {
             post :create, params: {game: valid_attributes},
                           session: valid_session
-          }.to change(AppComponent::Game, :count).by(1)
+          }.to change(Games::Game, :count).by(1)
         end
         
         it "assigns a newly created game as @game" do
           post :create, params: {game: valid_attributes}, session: valid_session
-          expect(assigns(:game)).to be_a AppComponent::Game
+          expect(assigns(:game)).to be_a Games::Game
           expect(assigns(:game)).to be_persisted
         end
 
         it "redirects to the created game" do
           post :create, params: {game: valid_attributes}, session: valid_session
-          expect(response).to redirect_to(AppComponent::Game.last)
+          expect(response).to redirect_to(Games::Game.last)
         end
         
         it "routes to #create" do
@@ -93,7 +93,7 @@ module GamesAdmin
         it "assigns a newly created but unsaved game as @game" do
           post :create, params: {game: invalid_attributes},
                         session: valid_session
-          expect(assigns(:game)).to be_a_new AppComponent::Game
+          expect(assigns(:game)).to be_a_new Games::Game
         end
         
         it "re-renders the new template" do
@@ -157,7 +157,7 @@ module GamesAdmin
         game = create_game
         expect {
           delete :destroy, params: {id: game.to_param}, session: valid_session
-        }.to change(AppComponent::Game, :count).by(-1)
+        }.to change(Games::Game, :count).by(-1)
       end
 
       it "redirects to the games list" do

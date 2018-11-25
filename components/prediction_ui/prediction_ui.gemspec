@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   
   s.add_dependency "app_component"
   s.add_dependency "teams"
+  s.add_dependency "games"
   s.add_dependency "predictor"
   
   s.add_development_dependency "rspec-rails"

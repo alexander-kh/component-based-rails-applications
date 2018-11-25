@@ -15,6 +15,9 @@ PATH
       slim-rails (= 3.2.0)
       teams
       trueskill
+    games (0.1.0)
+      activerecord (= 5.1.6)
+      teams
     predictor (0.1.0)
       trueskill
     teams (0.1.0)
@@ -25,6 +28,7 @@ PATH
   specs:
     prediction_ui (0.1.0)
       app_component
+      games
       jquery-rails (= 4.3.1)
       predictor
       rails (~> 5.1.6)
@@ -194,6 +198,7 @@ DEPENDENCIES
   app_component!
   capybara
   database_cleaner
+  games!
   prediction_ui!
   predictor!
   rails-controller-testing

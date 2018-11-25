@@ -15,14 +15,18 @@ PATH
       slim-rails (= 3.2.0)
       teams
       trueskill
+    games (0.1.0)
+      activerecord (= 5.1.6)
+      teams
     games_admin (0.1.0)
-      app_component
+      games
       jquery-rails (= 4.3.1)
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
       teams
     prediction_ui (0.1.0)
       app_component
+      games
       jquery-rails (= 4.3.1)
       predictor
       rails (~> 5.1.6)

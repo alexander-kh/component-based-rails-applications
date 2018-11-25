@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181124112801) do
+ActiveRecord::Schema.define(version: 20181125120206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "app_component_games", force: :cascade do |t|
+  create_table "games_games", force: :cascade do |t|
     t.datetime "date"
     t.string "location"
     t.integer "first_team_id"

@@ -5,6 +5,7 @@ gemspec
 path "../" do
   gem "app_component"
   gem "teams"
+  gem "games"
   gem "predictor"
 end
 
