@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "slim-rails", "3.2.0"
   s.add_dependency "jquery-rails", "4.3.1"
   
-  s.add_dependency "app_component"
+  s.add_dependency "web_ui"
   s.add_dependency "teams"
   s.add_dependency "games"
   s.add_dependency "predictor"

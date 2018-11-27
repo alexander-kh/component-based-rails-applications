@@ -8,7 +8,7 @@ GIT
 PATH
   remote: ..
   specs:
-    app_component (0.1.0)
+    web_ui (0.1.0)
       jquery-rails (= 4.3.1)
       predictor
       rails (= 5.1.6)
@@ -27,7 +27,7 @@ PATH
   remote: .
   specs:
     prediction_ui (0.1.0)
-      app_component
+      web_ui
       games
       jquery-rails (= 4.3.1)
       predictor
@@ -195,7 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  app_component!
+  web_ui!
   capybara
   database_cleaner
   games!

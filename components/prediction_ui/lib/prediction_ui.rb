@@ -2,7 +2,7 @@ require "slim-rails"
 require "jquery-rails"
 
 require "predictor"
-require "app_component"
+require "web_ui"
 
 module PredictionUi
   require "prediction_ui/engine"

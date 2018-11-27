@@ -1,7 +1,7 @@
 require "slim-rails"
 require "jquery-rails"
 
-require "app_component"
+require "web_ui"
 
 module TeamsAdmin
   require "teams_admin/engine"

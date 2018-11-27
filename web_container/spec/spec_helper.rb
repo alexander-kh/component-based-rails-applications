@@ -6,7 +6,7 @@ require "rspec/rails"
 require "capybara/rails"
 require "capybara/rspec"
 
-Dir[AppComponent::Engine.root.join("spec/support/**/*.rb")].
+Dir[WebUi::Engine.root.join("spec/support/**/*.rb")].
   each { |f| require f }
 
 RSpec.configure do |config|

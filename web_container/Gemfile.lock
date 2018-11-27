@@ -8,13 +8,6 @@ GIT
 PATH
   remote: ../components
   specs:
-    app_component (0.1.0)
-      jquery-rails (= 4.3.1)
-      predictor
-      rails (= 5.1.6)
-      slim-rails (= 3.2.0)
-      teams
-      trueskill
     games (0.1.0)
       activerecord (= 5.1.6)
       teams
@@ -25,26 +18,33 @@ PATH
       slim-rails (= 3.2.0)
       teams
     prediction_ui (0.1.0)
-      app_component
       games
       jquery-rails (= 4.3.1)
       predictor
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
       teams
+      web_ui
     teams (0.1.0)
       activerecord (= 5.1.6)
     teams_admin (0.1.0)
-      app_component
       jquery-rails (= 4.3.1)
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
       teams
+      web_ui
+    web_ui (0.1.0)
+      jquery-rails (= 4.3.1)
+      predictor
+      rails (= 5.1.6)
+      slim-rails (= 3.2.0)
+      teams
+      trueskill
     welcome_ui (0.1.0)
-      app_component
       jquery-rails (= 4.3.1)
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
+      web_ui
 
 GEM
   remote: https://rubygems.org/
