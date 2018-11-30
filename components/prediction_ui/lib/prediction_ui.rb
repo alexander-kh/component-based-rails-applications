@@ -1,12 +1,13 @@
 require "slim-rails"
 require "jquery-rails"
 
-require "predictor"
 require "web_ui"
+require "teams"
+require "games"
+require "predict_game"
 
 module PredictionUi
   require "prediction_ui/engine"
-  require "games"
   
   def self.nav_entry
     {

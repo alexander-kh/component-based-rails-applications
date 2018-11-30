@@ -3,7 +3,7 @@
 exit_code=0
 
 echo "*** Running welcome ui engine specs"
-bundle install
+bundle install | grep Installing
 bundle exec rake db:create db:migrate
 RAILS_ENV=test bundle exec rake db:create
 RAILS_ENV=test bundle exec rake db:migrate

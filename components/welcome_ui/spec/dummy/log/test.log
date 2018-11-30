@@ -87,3 +87,23 @@ Processing by WelcomeUi::WelcomeController#index as HTML
   Rendered /Users/alexander_kh/workspace/sportsball/components/welcome_ui/app/views/welcome_ui/welcome/index.html.slim within layouts/app_component/application (0.2ms)
   Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
 Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::InternalMetadata Load (2.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeUi::WelcomeController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/welcome_ui/app/views/welcome_ui/welcome/index.html.slim within layouts/web_ui/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/welcome_ui/app/views/welcome_ui/welcome/index.html.slim within layouts/web_ui/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeUi::WelcomeController#index as HTML
+  Rendering /Users/alexander_kh/workspace/sportsball/components/welcome_ui/app/views/welcome_ui/welcome/index.html.slim within layouts/web_ui/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered /Users/alexander_kh/workspace/sportsball/components/welcome_ui/app/views/welcome_ui/welcome/index.html.slim within layouts/web_ui/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.0ms)

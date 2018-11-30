@@ -6,7 +6,7 @@ path "../" do
   gem "web_ui"
   gem "teams"
   gem "games"
-  gem "predictor"
+  gem "predict_game"
 end
 
 gem "trueskill",

@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "web_ui"
   s.add_dependency "teams"
   s.add_dependency "games"
-  s.add_dependency "predictor"
+  s.add_dependency "predict_game"
   
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "shoulda-matchers"

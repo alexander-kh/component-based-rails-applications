@@ -31,6 +31,16 @@ RSpec.describe Predictor::Predictor do
     expect(prediction.winner).to eq(@team2)
   end
   
+  it "will only predict games between two teams" do
+    expect(@predictor.game_predictable?(@team1, @team2)).to eq(true)
+    expect(@predictor.game_predictable?(@team1, @team1)).to eq(false)
+  end
+  
+  it "throws an error when predicting an impossible game" do
+    prediction = @predictor.predict(@team1, @team1)
+    expect(prediction).to be_a(::Predictor::PredictionError)
+  end
+  
   it "behaves funny when teams are equally strong" do
     prediction = @predictor.predict(@team1, @team2)
     expect(prediction.first_team).to eq(@team1)

@@ -17,10 +17,15 @@ PATH
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
       teams
+    predict_game (0.0.1)
+      games
+      predictor
+      publisher
+      teams
     prediction_ui (0.1.0)
       games
       jquery-rails (= 4.3.1)
-      predictor
+      predict_game
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
       teams
@@ -146,6 +151,7 @@ GEM
     predictor (2.3.1)
       redis (>= 3.0.0)
     public_suffix (3.0.3)
+    publisher (1.1.2)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -283,4 +289,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.17.1

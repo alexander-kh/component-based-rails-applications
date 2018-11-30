@@ -26,11 +26,20 @@ module Predictor
     end
     
     def predict(first_team, second_team)
-      team1 = @teams_lookup[first_team.id][:team]
-      team2 = @teams_lookup[second_team.id][:team]
-      winner = higher_mean_team(first_team, second_team) ?
-        team1 : team2
-      ::Predictor::Prediction.new(team1, team2, winner)
+      if game_predictable?(first_team, second_team)
+        team1 = @teams_lookup[first_team.id][:team]
+        team2 = @teams_lookup[second_team.id][:team]
+        winner = higher_mean_team(first_team, second_team) ?
+          team1 : team2
+        ::Predictor::Prediction.new(team1, team2, winner)
+      else
+        ::Predictor::PredictionError.new(
+          team1, team2, "Two teams needed for prediction")
+      end
+    end
+    
+    def game_predictable?(first_team, second_team)
+      first_team != second_team
     end
     
     def higher_mean_team(first_team, second_team)
