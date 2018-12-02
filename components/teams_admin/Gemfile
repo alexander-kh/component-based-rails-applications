@@ -4,7 +4,7 @@ gemspec
 
 path "../" do
   gem "web_ui"
-  gem "teams"
+  gem "teams_store"
 end
 
 gem "trueskill",

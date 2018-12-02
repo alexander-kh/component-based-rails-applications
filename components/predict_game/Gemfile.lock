@@ -3,12 +3,15 @@ PATH
   specs:
     games (0.1.0)
       activerecord (= 5.1.6)
-      teams
+      teams_store
     predictor (0.1.0)
       trueskill
     publisher (0.0.1)
     teams (0.1.0)
+      activemodel (= 5.1.6)
+    teams_store (0.0.1)
       activerecord (= 5.1.6)
+      teams
 
 PATH
   remote: .
@@ -17,7 +20,7 @@ PATH
       games
       predictor
       publisher
-      teams
+      teams_store
 
 GEM
   remote: https://rubygems.org/
@@ -69,7 +72,7 @@ DEPENDENCIES
   publisher!
   rake
   rspec
-  teams!
+  teams_store!
 
 BUNDLED WITH
    1.17.1

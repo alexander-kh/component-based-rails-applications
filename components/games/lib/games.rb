@@ -1,4 +1,3 @@
-require "games/engine"
-
 module Games
+  require "games/engine"
 end

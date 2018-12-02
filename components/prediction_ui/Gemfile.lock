@@ -10,20 +10,21 @@ PATH
   specs:
     games (0.1.0)
       activerecord (= 5.1.6)
-      teams
+      teams_store
     predict_game (0.0.1)
       games
       predictor
       publisher
-      teams
+      teams_store
     teams (0.1.0)
+      activemodel (= 5.1.6)
+    teams_store (0.0.1)
       activerecord (= 5.1.6)
+      teams
     web_ui (0.1.0)
       jquery-rails (= 4.3.1)
-      predictor
       rails (= 5.1.6)
       slim-rails (= 3.2.0)
-      teams
       trueskill
 
 PATH
@@ -35,7 +36,7 @@ PATH
       predict_game
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
-      teams
+      teams_store
       web_ui
 
 GEM
@@ -211,7 +212,7 @@ DEPENDENCIES
   rspec-rails
   shoulda-matchers
   sqlite3
-  teams!
+  teams_store!
   trueskill!
   web_ui!
 

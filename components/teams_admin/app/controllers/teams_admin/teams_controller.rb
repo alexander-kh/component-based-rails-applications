@@ -2,10 +2,11 @@ require_dependency "teams_admin/application_controller"
 
 module TeamsAdmin
   class TeamsController < ApplicationController
+    before_action :ensure_dependencies
     before_action :set_team, only: [:show, :edit, :update, :destroy]
 
     def index
-      @teams = Teams::Team.all
+      @teams = @team_repository.get_all
     end
 
     def new
@@ -16,35 +17,44 @@ module TeamsAdmin
     end
 
     def create
-      @team = Teams::Team.new(team_params)
-
-      if @team.save
-        redirect_to teams_url, notice: 'Team was successfully created.'
+      team = Teams::Team.new(team_params[:id], team_params[:name])
+      @team = @team_repository.create(team)
+      
+      if @team.persisted?
+        redirect_to teams_teams_url,
+          notice: "Team was successfully created."
       else
         render :new
       end
     end
 
     def update
-      if @team.update(team_params)
-        redirect_to teams_url, notice: 'Team was successfully updated.'
+      if @team_repository.update(@team.id, team_params[:name])
+        redirect_to teams_teams_url,
+          notice: "Team was successfully updated."
       else
         render :edit
       end
     end
 
     def destroy
-      @team.destroy
-      redirect_to teams_url, notice: 'Team was successfully destroyed.'
+      @team_repository.delete(@team.id)
+      redirect_to teams_teams_url,
+        notice: "Team was successfully destroyed."
     end
 
     private
-      def set_team
-        @team = Teams::Team.find(params[:id])
-      end
+    
+    def ensure_dependencies
+      @team_repository = TeamsStore::TeamRepository.new
+    end
+    
+    def set_team
+      @team = @team_repository.get(params[:id])
+    end
 
-      def team_params
-        params.require(:team).permit(:name)
-      end
+    def team_params
+      params.require(:teams_team).permit(:name)
+    end
   end
 end

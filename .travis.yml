@@ -12,6 +12,7 @@ gemfile:
   - components/games/Gemfile
   - components/predict_game/Gemfile
   - components/publisher/Gemfile
+  - components/teams_store_db/Gemfile
 before_install:
   - cd $(dirname $BUNDLE_GEMFILE)
 script:

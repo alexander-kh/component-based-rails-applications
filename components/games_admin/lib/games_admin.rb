@@ -6,7 +6,7 @@ require "web_ui"
 module GamesAdmin
   require "games_admin/engine"
   require "games"
-  require "teams"
+  require "teams_store"
   
   def self.nav_entry
     {

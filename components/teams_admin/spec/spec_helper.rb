@@ -15,7 +15,7 @@ Rails::Controller::Testing.install
 Dir[TeamsAdmin::Engine.root.join(
   "spec/support/**/*.rb")].each { |f| require f }
 
-require "teams/test_helpers"
+require "teams_store/test_helpers"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -50,7 +50,7 @@ RSpec.configure do |config|
     config.include ::Rails::Controller::Testing::Integration, :type => type
   end
   
-  config.include Teams::ObjectCreationMethods
+  config.include TeamsStore::ObjectCreationMethods
 end
 
 Shoulda::Matchers.configure do |config|

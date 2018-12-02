@@ -2,7 +2,7 @@ require "slim-rails"
 require "jquery-rails"
 
 require "web_ui"
-require "teams"
+require "teams_store"
 require "games"
 require "predict_game"
 

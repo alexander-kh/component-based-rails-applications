@@ -18,12 +18,12 @@ table
         td = game.location
         - if game.winning_team == 1
           td
-            strong = game.first_team.name
-          td = game.second_team.name
+            strong = TeamsStore::TeamRepository.new.get(game.first_team_id).name
+          td = TeamsStore::TeamRepository.new.get(game.second_team_id).name
         - else
-          td = game.first_team.name
+          td = TeamsStore::TeamRepository.new.get(game.first_team_id).name
           td
-            strong = game.second_team.name
+            strong = TeamsStore::TeamRepository.new.get(game.second_team_id).name
         td = link_to 'Show', game, class: "clear button"
         td = link_to 'Edit', edit_game_path(game), class: "clear button"
         td = link_to 'Destroy', game, data: { confirm: 'Are you sure?' }, method: :delete, class: "clear button alert"

@@ -1,8 +1,8 @@
 module Games::ObjectCreationMethods
   def new_game(overrides = {})
     defaults = {
-      first_team: -> { new_team },
-      second_team: -> { new_team },
+      first_team_id: -> { create_team.id },
+      second_team_id: -> { create_team.id },
       winning_team: 2,
       first_team_score: 2,
       second_team_score: 3,

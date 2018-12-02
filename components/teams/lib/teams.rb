@@ -1,4 +1,5 @@
-require "teams/engine"
+require "active_model"
 
 module Teams
+  require "teams/team"
 end

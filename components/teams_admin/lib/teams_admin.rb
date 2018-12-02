@@ -5,12 +5,12 @@ require "web_ui"
 
 module TeamsAdmin
   require "teams_admin/engine"
-  require "teams"
+  require "teams_store"
   
   def self.nav_entry
     {
       name: "Teams",
-      link: -> {::TeamsAdmin::Engine.routes.url_helpers.teams_path}
+      link: -> {::TeamsAdmin::Engine.routes.url_helpers.teams_teams_path}
     }
   end
 end

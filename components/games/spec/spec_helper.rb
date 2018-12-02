@@ -10,7 +10,7 @@ require "ostruct"
 Dir[Games::Engine.root.join("spec/support/**/*.rb")].
   each { |f| require f }
 
-require "teams/test_helpers"
+require "teams_store/test_helpers"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -39,7 +39,7 @@ RSpec.configure do |config|
   end
   
   config.include Games::ObjectCreationMethods
-  config.include Teams::ObjectCreationMethods
+  config.include TeamsStore::ObjectCreationMethods
 end
 
 Shoulda::Matchers.configure do |config|

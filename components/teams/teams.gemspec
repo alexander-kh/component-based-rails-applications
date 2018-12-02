@@ -9,17 +9,11 @@ Gem::Specification.new do |s|
   s.version     = Teams::VERSION
   s.authors     = ["Alexander Khlipun"]
   s.email       = ["alex.khlipun@icloud.com"]
-  s.summary     = "Summary of Teams."
-  s.license     = "MIT"
-
-  s.files = Dir["{app,config,db,lib}/**/*",
-                "MIT-LICENSE", "Rakefile", "README.md"]
-
-  s.add_dependency "activerecord", "5.1.6"
+  s.summary     = %q{Teams Class}
   
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "shoulda-matchers"
-  s.add_development_dependency "database_cleaner"
-  
-  s.add_development_dependency "sqlite3"
+  s.add_dependency "activemodel", "5.1.6"
+    
+  s.add_development_dependency "bundler"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rspec"
 end

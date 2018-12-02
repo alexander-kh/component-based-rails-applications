@@ -1,16 +1,16 @@
 module PredictionUi
   class PredictionsController < ApplicationController
     def new
-      @teams = Teams::Team.all
+      @teams = TeamsStore::TeamRepository.new.get_all
     end
     
     def create
       game_predictor = PredictGame::PredictGame.new(
-        Teams::Team.all, Games::Game.all)
+        TeamsStore::TeamRepository.new.get_all, Games::Game.all)
       game_predictor.add_subscriber(PredictionResponse.new(self))
       game_predictor.perform(
-        Teams::Team.find(params["first_team"]["id"]),
-        Teams::Team.find(params["second_team"]["id"]))
+        TeamsStore::TeamRepository.new.get(params["first_team"]["id"]),
+        TeamsStore::TeamRepository.new.get(params["second_team"]["id"]))
     end
     
     class PredictionResponse < SimpleDelegator
