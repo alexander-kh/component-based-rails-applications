@@ -37,6 +37,7 @@ RSpec.configure do |config|
   end
   
   config.around(:each) do |example|
+    TeamsStore::Db.reset
     DatabaseCleaner.cleaning do
       example.run
     end
