@@ -8,6 +8,8 @@ GIT
 PATH
   remote: ..
   specs:
+    teams (0.1.0)
+      activerecord (= 5.1.6)
     web_ui (0.1.0)
       jquery-rails (= 4.3.1)
       predictor
@@ -15,18 +17,16 @@ PATH
       slim-rails (= 3.2.0)
       teams
       trueskill
-    teams (0.1.0)
-      activerecord (= 5.1.6)
 
 PATH
   remote: .
   specs:
     teams_admin (0.1.0)
-      web_ui
       jquery-rails (= 4.3.1)
       rails (~> 5.1.6)
       slim-rails (= 3.2.0)
       teams
+      web_ui
 
 GEM
   remote: https://rubygems.org/
@@ -191,7 +191,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  web_ui!
   capybara
   database_cleaner
   rails-controller-testing
@@ -201,6 +200,7 @@ DEPENDENCIES
   teams!
   teams_admin!
   trueskill!
+  web_ui!
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
